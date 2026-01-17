@@ -33,6 +33,62 @@
 
     });
 </script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const text = "Front End Programer";
+        const typingElement = document.getElementById("typing");
+
+        let index = 0;
+        let isDeleting = false;
+
+        function typeEffect() {
+            if (!isDeleting && index <= text.length) {
+                typingElement.textContent = text.substring(0, index);
+                index++;
+                setTimeout(typeEffect, 120); // سرعة الكتابة
+            }
+            else if (isDeleting && index >= 0) {
+                typingElement.textContent = text.substring(0, index);
+                index--;
+                setTimeout(typeEffect, 70); // سرعة المسح
+            }
+            else if (index > text.length) {
+                setTimeout(() => isDeleting = true, 1500); // توقف قبل المسح
+                setTimeout(typeEffect, 1500);
+            }
+            else if (index < 0) {
+                isDeleting = false;
+                index = 0;
+                setTimeout(typeEffect, 600); // توقف قبل الإعادة
+            }
+        }
+
+        typeEffect();
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+        if (!scrollTopBtn) return;
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.style.display = "flex";
+            } else {
+                scrollTopBtn.style.display = "none";
+            }
+        });
+
+        scrollTopBtn.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    });
+</script>
 
 
 <body>
@@ -46,7 +102,7 @@
     </header>
     <section class="main reveal">
         <div>
-            <h2>Hello, I'm Abdullrhman <br><span class="span">Front End Programer</span></h2>
+            <h2>Hello, I'm Abdullrhman <br><span class="span" id="typing"></span></h2>
             <h3>Building modern web interfaces</h3>
             <a href="#projects" class="main_button ">View my work</a>
             <div class="social-icons ">
@@ -61,6 +117,8 @@
 
     </section>
     <section class="cards reveal" id="services">
+
+
         <h2 class="title">Services</h2>
         <div class="content">
             <div class="card reveal">
@@ -98,7 +156,11 @@
                 </div>
             </div>
         </div>
+
     </section>
+    <button id="scrollTopBtn">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
     <section class="projects reveal" id="projects">
         <h2 class="title">Projects</h2>
         <div class="content">

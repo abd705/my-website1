@@ -113,6 +113,32 @@ section {
     margin-bottom: 30px;
 }
 
+#scrollTopBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #6c63ff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+#scrollTopBtn:hover {
+    transform: translateY(-5px);
+    background: #554ee8;
+}
+
+
 .main_button {
     text-decoration: none;
     background-color: #3a6cf4;
