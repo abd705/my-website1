@@ -277,7 +277,7 @@ section {
 
 .lang-project p {
     background-color: #3a6cf4;
-    padding: 9px;
+    padding: 8px 0;
     border-radius: 20px;
     width: 70px;
     text-align: center;
@@ -328,12 +328,88 @@ section {
     margin-top: 10px;
 }
 
-.more-details {
+/* .more-details {
     text-decoration: none;
     color: #3a6cf4;
 }
 
 .more-details:hover {
+    color: #601cfc;
+} */
+/* .more-details {
+    width: 8em;
+    position: relative;
+    height: 2.5em;
+    border: 3px ridge #149cea;
+    outline: none;
+    background-color: transparent;
+    color: #3a6cf4;
+    transition: 1s;
+    border-radius: 0.3em;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    padding-top: 4px;
+    text-align: center;
+    text-decoration: none;
+} */
+.more-details {
+    width: 8em;
+    position: relative;
+    height: 2.5em;
+    /* border: 3px ridge #149cea; */
+    border: 3px ridge #3a6cf4;
+    outline: none;
+    background-color: transparent;
+    color: #3a6cf4;
+    transition: 1s;
+    border-radius: 0.3em;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    white-space: nowrap;
+    /* يمنع نزول الكلام لسطر ثاني */
+
+    text-decoration: none;
+}
+
+.more-details::after {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: 3%;
+    width: 95%;
+    height: 40%;
+    background-color: white;
+    transition: 0.5s;
+    transform-origin: center;
+}
+
+.more-details::before {
+    content: "";
+    transform-origin: center;
+    position: absolute;
+    top: 89%;
+    left: 3%;
+    width: 95%;
+    height: 40%;
+    background-color: white;
+    transition: 0.5s;
+}
+
+.more-details:hover::before,
+.more-details:hover::after {
+    transform: scale(0);
+}
+
+.more-details:hover {
+    /* box-shadow: inset 0px 0px 25px #1479ea; */
+    box-shadow: inset 0 0 25px #3a6cf4;
     color: #601cfc;
 }
 
@@ -405,6 +481,17 @@ section {
         align-items: center;
     }
 
+    .more-details {
+        font-size: 10px;
+
+    }
+
+    .lang-project p {
+
+        font-size: 10px;
+        width: 60px;
+
+    }
 }
 
 @media (max-width:641px) {
@@ -420,10 +507,33 @@ section {
     .main-content h3 {
         font-size: 1.4em;
     }
+
+    .more-details {
+        font-size: 10px;
+
+    }
+
+    .lang-project p {
+
+        font-size: 10px;
+        width: 55px;
+    }
 }
 
 @media (max-width:300px) {
     body {
         font-size: 10px;
+    }
+
+    .more-details {
+        font-size: 10px;
+
+    }
+
+    .lang-project p {
+
+        font-size: 8px;
+        width: 50px;
+
     }
 }
